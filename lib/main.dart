@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubit_integration/notes_manage_cubit.dart';
+import 'new_home_page.dart';
 import 'notes_home_cubit.dart';
 
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      home: mainnotespagefromprovider(),
+      home: newmainnotespagefromprovider(),
     ),
     );
   }

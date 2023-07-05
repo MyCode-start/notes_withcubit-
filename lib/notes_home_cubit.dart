@@ -31,9 +31,6 @@ class _mainnotespagefromproviderState extends State<mainnotespagefromprovider> {
 
 
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +54,8 @@ class _mainnotespagefromproviderState extends State<mainnotespagefromprovider> {
                   child: InkWell(
 
                     onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context)=>notesecondpage())));
+
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context)=>notesecondpage(index: index))));
                     },
 
                     onLongPress: () {
@@ -95,19 +93,26 @@ class _mainnotespagefromproviderState extends State<mainnotespagefromprovider> {
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.greenAccent,
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(state.myData[index][DBhelper().columnTitle],
-                          style: TextStyle(
-                              fontSize: 21, fontWeight: FontWeight.bold),),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                             state.myData[index][DBhelper().columnDesc],
-                              style: TextStyle(fontSize: 15)),
+                    child: SingleChildScrollView(
+                      child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(state.myData[index][DBhelper().columnTitle],
+                                style: TextStyle(
+                                    fontSize: 21, fontWeight: FontWeight.bold),),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                 state.myData[index][DBhelper().columnDesc],
+                                  style: TextStyle(fontSize: 15)),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
 
                   ),

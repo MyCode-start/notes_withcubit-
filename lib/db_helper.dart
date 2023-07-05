@@ -54,6 +54,7 @@ class DBhelper {
         dialogueTable, where: '$columnId = ?', whereArgs: [id.toString()]);
   }
 
+
   //For user table
 
   void signupadddata(String name, String email, String mobile,

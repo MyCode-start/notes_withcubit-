@@ -23,6 +23,7 @@ class NotesManageCubit extends Cubit<NotesManageState> {
 
   }
 
+
   void delNotes (int index) async{
     await DBhelper().delData(index);
     List <Map<String, dynamic>> myData = await DBhelper().fetchData();
