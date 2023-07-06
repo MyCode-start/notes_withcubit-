@@ -26,6 +26,7 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
   var orientation;
   Color mycolor = Colors.lightBlue;
 
+
   var arrcolor = [
 
     /*{'bgcolor' : Color(0xffFFAB91)},
@@ -95,7 +96,9 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
                           decoration: InputDecoration(hintText: 'Description'),
                         ),
                         SizedBox(height: 30),
-                        Container(
+
+
+                        /*Container(
                           width: 200,
                           height: 300,
                           child: BlockPicker(
@@ -106,14 +109,12 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
                               });
                             },
                           ),
-                        ),
-
-
-                        /*Row(
+                        ),*/
+                        
+                        Row(
                           children: [
                             InkWell(
                               onTap: () {
-                                selectedcolor = 1;
 
                               },
                               child: Container(
@@ -123,7 +124,7 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
                                   borderRadius: BorderRadius.circular(12.5),
                                   color: Color(0xffFFAB91),
                                 ),
-                              ),
+                              )
                             ),
 
                             SizedBox(width: 10),
@@ -181,7 +182,7 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
                               ),
                             ),
                           ],
-                        )*/
+                        )
 
                       ],
                     ),
@@ -309,7 +310,7 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
                         }, child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: mycolor,
+                          color: arrcolor[Random().nextInt(arrcolor.length-1)],
                         ),
                         child: SingleChildScrollView(
                           child: Container(
@@ -329,7 +330,8 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
                                   child: Text(
                                       state.myData[index][DBhelper()
                                           .columnDesc],
-                                      style: TextStyle(fontSize: 15)),
+                                      style: TextStyle(fontSize: 15, overflow: TextOverflow.clip,
+                                      )),
                                 ),
                               ],
                             ),

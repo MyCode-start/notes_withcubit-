@@ -14,6 +14,9 @@ class notesecondpage extends StatefulWidget {
 }
 
 class _notesecondpageState extends State<notesecondpage> {
+
+
+
   @override
   void initState() {
     BlocProvider.of<NotesManageCubit>(context).getNotes();
@@ -70,7 +73,10 @@ class _notesecondpageState extends State<notesecondpage> {
 }
 
 class BodyContentsecond extends StatelessWidget {
+
   final int index;
+  var titleditingcontroller= TextEditingController();
+  var descditingcontroller= TextEditingController();
 
   BodyContentsecond({required this.index});
 
@@ -78,6 +84,8 @@ class BodyContentsecond extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NotesManageCubit, NotesManageState>(
       builder: (context, state) {
+        titleditingcontroller = TextEditingController(text:  state.myData[index][DBhelper().columnTitle]);
+        descditingcontroller = TextEditingController(text:  state.myData[index][DBhelper().columnDesc]);
         return Expanded(
           child: Container(
             child: Padding(
@@ -87,17 +95,46 @@ class BodyContentsecond extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(
+                    child: TextField(
+                      controller: titleditingcontroller,
+                        style: TextStyle(color: Colors.white), // Set text color to white
+                        cursorColor: Colors.white, // Set cursor color to white
+                        maxLength: 100, // Maximum number of characters allowed in the text field
+                        maxLines: null,
+                        decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white), // Set line color to white
+                          ),
+                        ),
+                      ),
+
+                    /*Text(
                       state.myData[index][DBhelper().columnTitle],
                       style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
+                    ),*/
+
+
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(
+                    child: TextField(
+                      controller: descditingcontroller,
+                      style: TextStyle(color: Colors.white), // Set text color to white
+                      cursorColor: Colors.white, // Set cursor color to white
+                      maxLines: null,
+                      decoration: InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white), // Set line color to white
+                        ),
+                      ),
+                    ),
+
+                    /*Text(
                       state.myData[index][DBhelper().columnDesc],
                       style: TextStyle(fontSize: 18, color: Colors.white,),
-                    ),
+                    ),*/
+
+
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
