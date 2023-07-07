@@ -54,6 +54,17 @@ class DBhelper {
         dialogueTable, where: '$columnId = ?', whereArgs: [id.toString()]);
   }
 
+  Future <void>  updateData(int id, String title, String desc) async{
+    var myDB = await openDb();
+    myDB.update(dialogueTable, {columnTitle: title, columnDesc: desc},
+        where: '$columnId = ?', whereArgs: [id.toString()]);
+
+  }
+
+
+
+
+
 
   //For user table
 
@@ -68,7 +79,6 @@ class DBhelper {
       userpassword: password,
     });
   }
-
 
 
   Future<bool> isemailexist(String email) async {

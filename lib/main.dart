@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubit_integration/color_selection_manage_cubit.dart';
 import 'cubit_integration/notes_manage_cubit.dart';
 import 'new_home_page.dart';
-import 'notes_home_cubit.dart';
+
 
 
 void main() {

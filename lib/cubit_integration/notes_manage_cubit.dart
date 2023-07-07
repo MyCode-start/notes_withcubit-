@@ -31,7 +31,12 @@ class NotesManageCubit extends Cubit<NotesManageState> {
 
   }
 
+  void updateNotes (int index, title, desc) async{
+    await DBhelper().updateData(index,title, desc);
+    List <Map<String, dynamic>> myData = await DBhelper().fetchData();
+    emit(NotesManageState(myData: myData));
 
+  }
 
 }
 

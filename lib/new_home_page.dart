@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:notes_cubit/show_notes.dart';
+import 'package:notes_cubit/show_notes_new.dart';
 import '../db_helper.dart';
 import 'cubit_integration/notes_manage_cubit.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -25,6 +25,7 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
   var desc;
   var orientation;
   Color mycolor = Colors.lightBlue;
+
 
 
   var arrcolor = [
@@ -55,9 +56,10 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
 
   @override
   void initState() {
-    BlocProvider.of<NotesManageCubit>(context).getNotes();
+   BlocProvider.of<NotesManageCubit>(context).getNotes();
     super.initState();
   }
+
 
 
   @override
@@ -272,9 +274,9 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
                       child: InkWell(
 
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                               context, MaterialPageRoute(builder: ((context) =>
-                              notesecondpage(index: index))));
+                              newnotesecondpage(index: index))));
                         },
 
                         onLongPress: () {
@@ -381,9 +383,9 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
                   child: InkWell(
 
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context, MaterialPageRoute(builder: ((context) =>
-                          notesecondpage(index: index))));
+                          newnotesecondpage(index: index))));
                     },
 
                     onLongPress: () {
@@ -459,5 +461,6 @@ class _newmainnotespagefromproviderState extends State<newmainnotespagefromprovi
   }
   );
 }
+
 
 }
